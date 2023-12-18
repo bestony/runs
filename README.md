@@ -1,4 +1,4 @@
-# Docked Rails CLI
+# Docked Rails CLI(runs)
 
 Setting up Rails for the first time with all the dependencies necessary can be daunting for beginners. Docked Rails CLI uses a Docker image to make it much easier, requiring only Docker to be installed.
 
@@ -12,15 +12,18 @@ alias runs='docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bundle -p
 Then create your Rails app:
 
 ```bash
-docked rails new weblog
+runs rails new weblog
 cd weblog
-docked rails generate scaffold post title:string body:text
-docked rails db:migrate
-docked rails server
+runs rails generate scaffold post title:string body:text
+runs rails db:migrate
+runs rails server
 ```
 
 That's it! Your Rails app is running on `http://localhost:3000/posts`.
 
 ## Sidenote
 
-`docked` is not intended to replace a full development setup. It is merely a way for newcomers to quickly get started with Rails. The included dependencies stick to what you need when running `rails new` without additional options. It does not include dependencies for running with PostgreSQL or Redis for example.
+`runs` is not intended to replace a full development setup. It is merely a way for newcomers to quickly get started with Rails. The included dependencies stick to what you need when running `rails new` without additional options. It does not include dependencies for running with PostgreSQL or Redis for example.
+
+## Credit
+Forked from rails/docked
