@@ -5,7 +5,6 @@ FROM ruby:$RUBY_VERSION-slim
 # Install dependencies
 RUN apt-get update -qq && apt-get install -y build-essential libvips gnupg2 curl git
 
-# Ensure node.js 18 is available for apt-get
 # Ensure node.js 20 is available for apt-get
 ARG NODE_MAJOR=20
 RUN apt-get update && \
@@ -24,8 +23,8 @@ VOLUME /bundle
 RUN bundle config set --global path '/bundle'
 ENV PATH="/bundle/ruby/$RUBY_VERSION/bin:${PATH}"
 
+# install libpq-dev for PGSQL
 RUN apt update -qq && apt install -y libpq-dev
-
 RUN gem update --system && gem install foreman
 
 # Install Rails
