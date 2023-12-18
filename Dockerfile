@@ -20,6 +20,10 @@ VOLUME /bundle
 RUN bundle config set --global path '/bundle'
 ENV PATH="/bundle/ruby/$RUBY_VERSION/bin:${PATH}"
 
+RUN apt update -qq && apt install -y libpq-dev
+
+RUN gem update --system && gem install foreman
+
 # Install Rails
 RUN gem install rails
 
