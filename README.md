@@ -2,6 +2,13 @@
 
 Setting up Rails for the first time with all the dependencies necessary can be daunting for beginners. Docked Rails CLI uses a Docker image to make it much easier, requiring only Docker to be installed.
 
+## Features
+- Ruby 3.2.2
+- PostgreSQL Support
+- Node.js 20 Support
+
+## Install
+
 Install [Docker](https://www.docker.com/products/docker-desktop/) (and [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) on Windows). Then copy'n'paste into your terminal:
 
 ```bash
@@ -9,6 +16,7 @@ docker volume create ruby-bundle-cache
 alias runs='docker run --rm -it -v ${PWD}:/rails -v ruby-bundle-cache:/bundle -p 3000:3000 ghcr.io/bestony/runs'
 ```
 
+## Usage
 Then create your Rails app:
 
 ```bash
